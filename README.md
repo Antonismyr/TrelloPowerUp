@@ -47,10 +47,12 @@ Give Pages a minute to publish, and confirm that URL loads before moving on.
 
 ## Register the Power-Up
 
-1. Go to <https://trello.com/power-ups/admin> → **New**.
+1. Go to <https://trello.com/apps/admin> → **New**.
 2. Pick your workspace, name it (e.g. *Customer Phone*), and set the **Iframe connector URL** to the Pages URL above.
 3. On the Power-Up's **Capabilities** tab, enable `card-badges` and `card-detail-badges`. Both the admin toggle *and* the `initialize()` registration in `js/client.js` are required — code alone is not enough on current Trello.
 4. On your board: **Power-Ups → Custom** tab → add it.
+
+**Ignore the API Key tab.** It asks for an OAuth 2.0 *Callback URL* and marks it required, but that whole section belongs to Trello's REST API. This Power-Up only uses the iframe client library (`t.get` / `t.set`), which needs no API key, no secret and no OAuth. You would only need it if the Power-Up called the REST API on your behalf via `t.getRestApi()`, which it does not.
 
 ## Using it
 
