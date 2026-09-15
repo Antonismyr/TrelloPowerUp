@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Customer Phone</title>
+    <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
+    <style>
+      body { padding: 8px; }
+      input.error { border-color: #eb5a46; box-shadow: none; }
+      p.error-text { color: #eb5a46; margin: 4px 0 0; font-size: 12px; }
+      p.hint { color: #5e6c84; margin: 4px 0 12px; font-size: 12px; }
+      .actions { display: flex; align-items: center; gap: 8px; }
+      .actions .spacer { flex: 1; }
+    </style>
+  </head>
+  <body>
+    <form id="phone-form" novalidate>
+      <label for="phone">Phone number</label>
+      <input
+        type="tel"
+        id="phone"
+        inputmode="tel"
+        maxlength="20"
+        autocomplete="off"
+        placeholder="210-555-1234">
+      <p class="error-text" id="error" hidden>Enter exactly 10 digits.</p>
+      <p class="hint">10 digits. Spaces, dashes and brackets are fine.</p>
+
+      <div class="actions">
+        <input type="submit" class="mod-primary" value="Save">
+        <span class="spacer"></span>
+        <a href="#" class="quiet" id="remove" hidden>Remove</a>
+      </div>
+    </form>
+
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script src="./js/phone.js"></script>
+    <script src="./js/edit.js"></script>
+  </body>
+</html>
