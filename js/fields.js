@@ -40,6 +40,8 @@ function normalizeName(input) {
    accents. Hyphen, apostrophe and space are permitted inside the name
    (Mary-Jane, O'Brien, Van der Berg) but it must start and end with a
    letter, which keeps out " -" and similar. No digits, no symbols. */
+/* ’ is the curly apostrophe, escaped rather than written literally so the
+   pattern cannot break if this file is ever served with the wrong charset. */
 var NAME_PATTERN = /^\p{L}(?:[\p{L}\p{M}'’ -]*\p{L})?$/u;
 
 function isValidName(value) {
