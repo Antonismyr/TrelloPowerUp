@@ -2,39 +2,47 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Customer Phone</title>
+    <title>Customer Details</title>
     <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
     <style>
       body { padding: 8px; }
       input.error { border-color: #eb5a46; box-shadow: none; }
       p.error-text { color: #eb5a46; margin: 4px 0 0; font-size: 12px; }
       p.hint { color: #5e6c84; margin: 4px 0 12px; font-size: 12px; }
-      .actions { display: flex; align-items: center; gap: 8px; }
+      label { margin-top: 8px; }
+      .actions { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
       .actions .spacer { flex: 1; }
     </style>
   </head>
   <body>
-    <form id="phone-form" novalidate>
+    <form id="details-form" novalidate>
+      <label for="first-name">First name</label>
+      <input type="text" id="first-name" maxlength="50" autocomplete="off" placeholder="Αντώνης">
+      <p class="error-text" id="first-name-error" hidden>Letters only — no digits or symbols.</p>
+
+      <label for="last-name">Surname</label>
+      <input type="text" id="last-name" maxlength="50" autocomplete="off" placeholder="Μυρσινιάς">
+      <p class="error-text" id="last-name-error" hidden>Letters only — no digits or symbols.</p>
+
       <label for="phone">Phone number</label>
-      <input
-        type="tel"
-        id="phone"
-        inputmode="tel"
-        maxlength="20"
-        autocomplete="off"
-        placeholder="210-555-1234">
-      <p class="error-text" id="error" hidden>Enter exactly 10 digits.</p>
-      <p class="hint">10 digits. Spaces, dashes and brackets are fine.</p>
+      <input type="tel" id="phone" inputmode="tel" maxlength="20" autocomplete="off" placeholder="210-555-1234">
+      <p class="error-text" id="phone-error" hidden>Enter exactly 10 digits.</p>
+
+      <p class="hint">
+        Names accept letters in any alphabet, plus hyphens and apostrophes.
+        Phone is 10 digits; spaces, dashes and brackets are fine.
+        Leave a field empty to clear it.
+      </p>
 
       <div class="actions">
         <input type="submit" class="mod-primary" value="Save">
         <span class="spacer"></span>
-        <a href="#" class="quiet" id="remove" hidden>Remove</a>
+        <a href="#" class="quiet" id="clear-all" hidden>Clear all</a>
       </div>
     </form>
 
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
-    <script src="./js/phone.js"></script>
+    <script src="./js/fields.js"></script>
     <script src="./js/edit.js"></script>
   </body>
 </html>
